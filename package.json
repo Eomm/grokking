@@ -4,7 +4,7 @@
   "description": "Mind under construction",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "tap -J test/**/*.test.js"
   },
   "repository": {
     "type": "git",
@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/Eomm/grokking#readme",
   "devDependencies": {
-    "standard": "^12.0.1"
+    "standard": "^12.0.1",
+    "tap": "^12.6.1"
   }
 }
