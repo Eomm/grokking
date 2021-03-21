@@ -4,7 +4,9 @@
   "description": "Mind under construction",
   "main": "index.js",
   "scripts": {
-    "test": "tap -J test/**/*.test.js"
+    "lint": "standard",
+    "lint:fix": "standard --fix",
+    "test": "tap -t0 -J test/**/*.test.js"
   },
   "repository": {
     "type": "git",
