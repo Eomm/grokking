@@ -6,8 +6,10 @@ function ConsoleWriter (opts) {
   return new Writable({
     ...opts,
     write (chunk, encoding, done) {
-      console.log({ chunk, encoding })
-      setTimeout(done, 500) // slow simulation
+      if (opts.silent !== true) {
+        console.log({ chunk, encoding })
+      }
+      setTimeout(done, opts.time || 500) // slow simulation
     }
   })
 }

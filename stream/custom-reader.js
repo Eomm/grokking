@@ -1,7 +1,6 @@
 'use strict'
 
 const { Readable } = require('stream')
-const ConsoleWriter = require('./custom-writer')
 
 function ArrayReader (array, opts) {
   const consumeToRead = array.slice(0)
@@ -19,7 +18,4 @@ function ArrayReader (array, opts) {
   })
 }
 
-const highWaterMark = 32768
-const inStream = ArrayReader(['a', 'b', 'c'], { encoding: 'utf8', highWaterMark: highWaterMark / 2 })
-const outStream = ConsoleWriter({ objectMode: true, highWaterMark })
-inStream.pipe(outStream)
+module.exports = ArrayReader
