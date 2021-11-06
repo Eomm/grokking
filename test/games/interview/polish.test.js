@@ -7,10 +7,10 @@ const polish = require('../../../games/interview/polish')
 ]
   .forEach(evaluate => {
     test(`Evalutate expression with ${evaluate.name}`, t => {
-      t.equals(evaluate('5 1 2 + 4 * + 3 -'), 14)
-      t.equals(evaluate(''), 0)
-      t.equals(evaluate('1 2 3.5'), 3.5)
-      t.equals(evaluate('1 3 -'), -2)
+      t.equal(evaluate('5 1 2 + 4 * + 3 -'), 14)
+      t.equal(evaluate(''), 0)
+      t.equal(evaluate('1 2 3.5'), 3.5)
+      t.equal(evaluate('1 3 -'), -2)
       t.end()
     })
   })

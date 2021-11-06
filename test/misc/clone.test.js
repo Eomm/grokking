@@ -15,7 +15,7 @@ test('clone object', t => {
     }
 
     const cloned = { ...aJson }
-    t.deepEquals(cloned, aJson)
+    t.same(cloned, aJson)
 
     aJson.foo.bar = 'doo'
     t.equal(cloned.foo.bar, aJson.foo.bar)
@@ -31,7 +31,7 @@ test('clone object', t => {
     }
 
     const cloned = Object.assign({}, aJson)
-    t.deepEquals(cloned, aJson)
+    t.same(cloned, aJson)
 
     aJson.foo.bar = 'doo'
     t.equal(cloned.foo.bar, aJson.foo.bar)
@@ -47,10 +47,10 @@ test('clone object', t => {
     }
 
     const cloned = JSON.parse(JSON.stringify(aJson))
-    t.deepEquals(cloned, aJson)
+    t.same(cloned, aJson)
 
     aJson.foo.bar = 'doo'
-    t.notEqual(cloned.foo.bar, aJson.foo.bar)
+    t.not(cloned.foo.bar, aJson.foo.bar)
   })
 
   t.test('object create clone only prototype and properties - function', t => {
@@ -64,13 +64,13 @@ test('clone object', t => {
     }
 
     const cloned = Object.create(afunc)
-    t.equals(cloned.hello, afunc.hello)
+    t.equal(cloned.hello, afunc.hello)
 
     afunc.hello = 'ciao'
-    t.equals(cloned.hello, afunc.hello)
+    t.equal(cloned.hello, afunc.hello)
 
     cloned.hello = 'hola'
-    t.notEquals(cloned.hello, afunc.hello)
+    t.not(cloned.hello, afunc.hello)
   })
 
   t.test('object create clone only prototype and properties - json', t => {
@@ -83,11 +83,11 @@ test('clone object', t => {
     }
 
     const cloned = Object.create(aJson)
-    t.deepEquals({}, cloned)
+    t.same({}, cloned)
 
     cloned.hello = 'universe'
     aJson.foo.bar = 'doo'
     t.equal(cloned.foo.bar, aJson.foo.bar)
-    t.notEqual(cloned.hello, aJson.hello)
+    t.not(cloned.hello, aJson.hello)
   })
 })

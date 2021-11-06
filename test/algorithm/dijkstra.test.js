@@ -16,7 +16,7 @@ test('basic test', t => {
     H: { C: 2, G: 2, F: 2 },
     I: {}
   }, 'A', 'I')
-  t.deepEquals(path, [ 'A', 'C', 'D', 'G', 'I' ])
+  t.same(path, [ 'A', 'C', 'D', 'G', 'I' ])
 })
 
 test('no path', t => {
@@ -31,7 +31,7 @@ test('no path', t => {
     '6': { '7': 8 },
     '7': { '5': 3 }
   }, '0', '7')
-  t.deepEquals(path, [])
+  t.same(path, [])
 })
 
 test('no path', t => {
@@ -46,5 +46,5 @@ test('no path', t => {
     '6': { '7': 8 },
     '7': { '5': 3 }
   }, '3', '2')
-  t.deepEquals(path, ['3', '5', '1', '0', '2'])
+  t.same(path, ['3', '5', '1', '0', '2'])
 })

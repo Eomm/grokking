@@ -55,11 +55,11 @@ test('looping', t => {
 
   const data = ['a', 'b']
   for (const k in obj) {
-    t.equals(k, data.shift(), 'iterating the prototype')
+    t.equal(k, data.shift(), 'iterating the prototype')
   }
 
-  t.deepEquals(Object.keys(obj), ['a'], 'keys does not iterate the prototype')
-  t.deepEquals(Object.values(obj), [1], 'values does not iterate the prototype')
+  t.same(Object.keys(obj), ['a'], 'keys does not iterate the prototype')
+  t.same(Object.values(obj), [1], 'values does not iterate the prototype')
 
   t.end()
 })
