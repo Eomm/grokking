@@ -63,3 +63,39 @@ test('looping', t => {
 
   t.end()
 })
+
+test('inheritance test', t => {
+  // all these properties are not enumerable if not set
+  const obj1 = Object.create(
+    {
+      isProto: true
+    },
+    {
+      a: { value: 42, enumerable: true }
+    }
+  )
+
+  // add to the instance
+  obj1.b = 'b'
+
+  const obj2 = Object.create(obj1)
+
+  t.equal(obj1.a, 42)
+  t.equal(obj1.b, 'b')
+  t.equal(obj1.isProto, true)
+
+  t.equal(obj2.a, 42)
+  t.equal(obj2.b, 'b')
+  t.equal(obj2.isProto, true)
+
+  t.same(obj1, obj2)
+
+  obj2.b = 'bb'
+  t.notSame(obj1, obj2)
+
+  t.equal(obj1.b, 'b')
+  t.equal(obj2.b, 'bb')
+  t.equal(Object.getPrototypeOf(obj2).b, 'b')
+
+  t.end()
+})
