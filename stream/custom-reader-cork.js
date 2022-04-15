@@ -2,7 +2,8 @@
 
 const ConsoleWriter = require('./custom-writer')
 
-const outStream = ConsoleWriter({ objectMode: true,
+const outStream = ConsoleWriter({
+  objectMode: true,
   highWaterMark: 512,
   // silent: true,
   time: 1

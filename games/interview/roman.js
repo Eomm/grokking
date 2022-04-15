@@ -1,6 +1,7 @@
 'use strict'
 
-const ROMAN_TABLE = Object.freeze({ I: 1,
+const ROMAN_TABLE = Object.freeze({
+  I: 1,
   V: 5,
   X: 10,
   L: 50,

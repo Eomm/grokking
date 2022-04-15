@@ -17,8 +17,8 @@ module.exports.slow = function eratosthenes (max) {
 }
 
 module.exports.fast = function eratosthenes (max) {
-  let sqrt = Math.sqrt(max)
-  let sieve = new Array(max).fill(0)
+  const sqrt = Math.sqrt(max)
+  const sieve = new Array(max).fill(0)
 
   for (let primeCandidate = 2; primeCandidate < sqrt; primeCandidate++) {
     if (sieve[primeCandidate] === true) {
